@@ -1,0 +1,17 @@
+<h1>ALL OUR FLATS</h1>
+
+<%= link_to 'Add a new flat', new_flat_path %>
+<p>
+<% @flats.each do |r| %>
+  <%= r.name %>
+  <%= r.address %>
+  <%= r.description %>
+  <i class="fas fa-money-bill-wave"></i> <%= r.price_per_night %>
+  <i class="fas fa-users"></i> <%= r.number_of_guests%>
+  <%= link_to "See more", flat_path(r.id)%>
+  <%= link_to 'Edit', edit_flat_path(r.id) %>
+  <%= link_to 'Remove', flat_path(r.id),
+      method: :delete,
+      data: { confirm: "Are you sure?" } %>
+</p>
+<% end %>
